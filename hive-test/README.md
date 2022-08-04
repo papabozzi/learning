@@ -93,3 +93,16 @@ data into hive.
 ### q3.sql:
 - <i>hive-test/queries/q3.sql: the query of the third question<br>
 - output
+
+| moviename                                                                   | avgrate            |
+|-----------------------------------------------------------------------------|--------------------|
+| Close Shave, A (1995)                                                       | 4.52054794520548   |
+| Rear Window (1954)                                                          | 4.476190476190476  |
+| Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1963) | 4.4498902706656915 |
+| It Happened One Night (1934)                                                | 4.280748663101604  |
+| Duck Soup (1933)                                                            | 4.21043771043771   |
+| Trust (1990)                                                                | 4.188888888888889  |
+| Being John Malkovich (1999)                                                 | 4.125390450691656  |
+| Roger & Me (1989)                                                           | 4.0739348370927315 |
+| Night on Earth (1991)                                                       | 3.747422680412371  |
+| Crying Game, The (1992)                                                     | 3.7314890154597236 |

@@ -12,32 +12,27 @@ CREATE
         )
         GROUP BY r.userId
         ORDER BY total DESC
-        LIMIT 1
+        LIMIT 1;
 
 CREATE TEMPORARY TABLE movie_10 As
-    SELECT r.movieId, AVG(rate) As avgrate
+    SELECT r.movieId
     FROM moonxyue.ratings r
-    WHERE r.movieId IN (
-        SELECT EXPLODE(s_movie)
+    WHERE r.userId IN (
+        SELECT userId
         FROM female
     )
-    GROUP BY movieId
-    ORDER BY avgrate DESC
-    LIMIT 10
+    ORDER BY rate DESC
+    LIMIT 10;
 
-SELECT m.movieName, movie_10.avgrate
-FROM (
-    moonxyue.movies m JOIN movie_10
-    ON m.movieId = movie_10.movieId
-)
-
-
-
-
-
-SELECT m.movieName, j.avgrate
+SELECT movieName, avgrate
 FROM
-
+    (SELECT movieId, AVG(rate) As avgrate
+            FROM moonxyue.ratings r
+            WHERE r.movieId IN (
+                SELECT movieId
+                FROM movie_10
+            )
+GROUP BY movieId) As m_r
 JOIN moonxyue.movies m
-ON m.movieId = j.movieId
-Order By j.avgrate DESC
+ON m.movieId = m_r.movieId
+ORDER BY avgrate DESC
